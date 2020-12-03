@@ -1,0 +1,152 @@
+html{
+    height: 100vh;
+    position: relative;
+}
+
+body {
+    padding: 0;
+    margin:0;
+    background-color: #beddf0;
+    font-family: 'Quicksand', Tahoma;
+    font-weight: 300;       
+    max-height: 100%;
+    margin: auto;
+}
+   
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+
+.container{
+    /*background-image: url('s5.jpg') ;
+    background-repeat: repeat-y;
+    /*width:900px;*/
+    height:80vh;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+}
+
+.info{
+    margin: 20px;
+    border-radius: 15px;
+    padding: 55px;
+    /* vertical-align: 50%; */
+    /* width: 600px; */
+   background-color: rgb(235, 245, 91);
+   justify-content: left; 
+}
+.body{
+    /* height: 100vh; */
+}
+
+.dashboard-title{
+
+}
+
+.dashboard-body{
+    border-radius: 15px;
+    padding: 10px;
+    width: 600px;
+    /* max-height: 40px; */
+    background-color: rgb(84, 66, 245);
+}
+
+.dashboard-header{
+    line-height: 30px;
+    /* text-align: left; */
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+
+
+.wrapper{
+    width:600px;
+    height:100px;
+    margin:auto;
+    /* background-color: rgb(167, 75, 75); */
+
+}
+
+.value{
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 900;
+    padding: 10px;
+}
+
+li:last-child {
+    list-style-type: none; 
+ }
+
+ /*responsive di layar*/
+ @media screen and (max-width: 600px){
+    section#box-profile{
+        width :90%;
+        height:630px;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 30%;
+    }
+    .container{
+   width:auto;
+   height:80vh;
+   margin:auto;
+   display: flex;
+   justify-content: space-between;
+}
+
+.info{
+   margin: 20px;
+   border-radius: 15px;
+   padding: 55px;
+   /* vertical-align: 50%; */
+   /* width: 600px; */
+  background-color: rgb(226, 243, 180);
+}
+    .dashboard-title{
+
+}
+
+.dashboard-body{
+   border-radius: 15px;
+   padding: 10px;
+   width: auto;
+   /* max-height: 40px; */
+   background-color: rgb(247, 209, 203);
+
+}
+
+.dashboard-header{
+   line-height: 30px;
+   /* text-align: left; */
+   /* display: flex;
+   justify-content: space-between; */
+}
+
+
+
+.wrapper{
+   width:600px;
+   height:100px;
+   margin:auto;
+   /* background-color: rgb(167, 75, 75); */
+
+}
+
+.value{
+   border-radius: 5px;
+   background-color: rgb(107, 76, 243);
+   text-align: center;
+   font-size: 30px;
+   font-weight: 900;
+   padding: 10px;
+}
+    section #input-form{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}

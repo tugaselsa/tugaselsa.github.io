@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="src.css">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>        
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+        <div style="background-image: url('s3.jpg');font-style:italic;font-weight:bold;">
+            <!--judul-->
+            <center><h1 >MONITORING PENCEMARAN AIR SUNGAI TELLO</h1></center> 
+            
+            <!---style="background-color:rgb(241, 125, 125);" -->
+            
+            <!--waktu-->
+            <h1 style="background-color:rgb(223, 224, 159);">
+                <font size="3"><p>Tanggal/Waktu: <span id="tanggalwaktu"></span></p> </font>
+                <script>
+                    var dt = new Date();
+                    document.getElementById("tanggalwaktu").innerHTML = dt.toLocaleString();
+                </script>
+            </h1>
+        </div>
+        
+        <div class="container">
+            <div class="nav-left">
+                <div class="info">
+                    
+                  <!---  <p>Batas Maximum yang diperbolehkan </p> -->
+                  <font size="6">Limit</font><br>
+                    
+                    <p>Nilai DO= 3 mg/L</p>
+                    <p>Nilai Suhu = C</p>
+                    <p>Nilai TDS = 1000 mg/L</p>
+                    <p>Nilai pH = 6-8,5 </p>
+                    <p>Nilai Kekeruhan = 25 NTU</p>
+                </div>
+            </div>
+            <div class="body">
+                <div class="wrapper">
+                    <div class="dashboard">
+                        <div class="dashboard-title"><h1>Node 1</h1></div>
+                        <table class="dashboard-body">
+                            <tr class="dashboard-header">
+                                <th>DO</th>
+                                <th>pH</th>
+                                <th>Tds</th>
+                                <th>Suhu</th>
+                                <th>Keruh</th>
+                            </tr>
+                            <tr class="dashboard-value">
+                                <td>
+                                    <div class="value" id="do1">0</div> 
+                                </td>
+                                <td>
+                                    <div class="value" id="ph1">0</div>   
+                                </td>
+                                <td>
+                                    <div class="value" id="Tds1">0</div> 
+                                </td>
+                                <td>
+                                    <div class="value" id="suhu1">0</div>
+                                </td>
+                                <td>        
+                                    <div class="value" id="keruh1">0</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="dashboard">
+                        <div class="dashboard-title"><h1>Node 2</h1></div>
+                        <table class="dashboard-body">
+                            <tr class="dashboard-header">
+                                <th>DO</th>
+                                <th>pH</th>
+                                <th>Tds</th>
+                                <th>Suhu</th>
+                                <th>Keruh</th>
+                            </tr>
+                            <tr class="dashboard-value">
+                                <td>
+                                    <div class="value" id="do2">0</div> 
+                                </td>
+                                <td>
+                                    <div class="value" id="ph2">0</div>   
+                                </td>
+                                <td>
+                                    <div class="value" id="tds2">0</div> 
+                                </td>
+                                <td>
+                                    <div class="value" id="suhu2">0</div>
+                                </td>
+                                <td>        
+                                    <div class="value" id="keruh2">0</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        
+               
+        <!-- <script src="" async defer></script> -->
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+
+            <script type="text/javascript" src="src.js"></script>
+    </body>
+</html>
