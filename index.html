@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html>
-    <head>
-    
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="src.css">
-        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="assets/style/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
         <!-- The core Firebase JS SDK is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
 
@@ -16,108 +13,116 @@
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    </head>
-    <body>
-        <div style="background-image: url('s3.jpg');font-style:italic;font-weight:bold;">
-            <!--judul-->
-            <center><h1 >MONITORING PENCEMARAN AIR SUNGAI TELLO</h1></center> 
-            
-            <!---style="background-color:rgb(241, 125, 125);" -->
-            
-            <!--waktu-->
-            <h1 style="background-color:rgb(223, 224, 159);">
-                <font size="3"><p>Tanggal/Waktu: <span id="tanggalwaktu"></span></p> </font>
-                <script>
-                    var dt = new Date();
-                    document.getElementById("tanggalwaktu").innerHTML = dt.toLocaleString();
-                </script>
-            </h1>
-        </div>
-        
-        <div class="container">
-            <div class="nav-left">
-                <div class="info">
-                    
-                  <!---  <p>Batas Maximum yang diperbolehkan </p> -->
-                  <font size="6">Limit</font><br>
-                    
-                    <p>Nilai DO= 3 mg/L</p>
-                    <p>Nilai Suhu = C</p>
-                    <p>Nilai TDS = 1000 mg/L</p>
-                    <p>Nilai pH = 6-8,5 </p>
-                    <p>Nilai Kekeruhan = 25 NTU</p>
-                </div>
-            </div>
-            <div class="body">
-                <div class="wrapper">
-                    <div class="dashboard">
-                        <div class="dashboard-title"><h1>Node 1</h1></div>
-                        <table class="dashboard-body">
-                            <tr class="dashboard-header">
-                                <th>DO</th>
-                                <th>pH</th>
-                                <th>Tds</th>
-                                <th>Suhu</th>
-                                <th>Keruh</th>
-                            </tr>
-                            <tr class="dashboard-value">
-                                <td>
-                                    <div class="value" id="do1">0</div> 
-                                </td>
-                                <td>
-                                    <div class="value" id="ph1">0</div>   
-                                </td>
-                                <td>
-                                    <div class="value" id="Tds1">0</div> 
-                                </td>
-                                <td>
-                                    <div class="value" id="suhu1">0</div>
-                                </td>
-                                <td>        
-                                    <div class="value" id="keruh1">0</div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="dashboard">
-                        <div class="dashboard-title"><h1>Node 2</h1></div>
-                        <table class="dashboard-body">
-                            <tr class="dashboard-header">
-                                <th>DO</th>
-                                <th>pH</th>
-                                <th>Tds</th>
-                                <th>Suhu</th>
-                                <th>Keruh</th>
-                            </tr>
-                            <tr class="dashboard-value">
-                                <td>
-                                    <div class="value" id="do2">0</div> 
-                                </td>
-                                <td>
-                                    <div class="value" id="ph2">0</div>   
-                                </td>
-                                <td>
-                                    <div class="value" id="tds2">0</div> 
-                                </td>
-                                <td>
-                                    <div class="value" id="suhu2">0</div>
-                                </td>
-                                <td>        
-                                    <div class="value" id="keruh2">0</div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>    
-                </div>
-            </div>
-        </div>
-        
-               
-        <!-- <script src="" async defer></script> -->
+    <title>Monitor Pencemaran Air</title>
+</head>
+<body>
+    <header>
+        <h1>MONITORING PENCEMARAN AIR SUNGAI TELLO</h1>
+    </header>
 
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-            https://firebase.google.com/docs/web/setup#available-libraries -->
+    <main>
+        
+        <aside>
+            <article class="card">
+                <h2>Limit</h2>
 
-            <script type="text/javascript" src="src.js"></script>
-    </body>
+                    <table>
+                        <tr> 
+                            <th>Nilai DO</th>
+                            <td>= 3 mg/L</td>
+                        </tr>
+    
+                        <tr>
+                            <th>Nilai Suhu</th>
+                            <td>= C</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Nilai TDS</th>
+                            <td>= 1000 mg/L</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Nilai pH</th>
+                            <td>= 6-8,5</td>
+                        </tr>
+    
+                        <tr>
+                            <th>Nilai Kekeruhan</th>
+                            <td>= 25 NTU</td>
+                        </tr>                      
+                    </table>
+            </article>
+        </aside>
+
+        <div id="content">
+            <article>
+                <section>
+                    <h2>Node 1</h2>
+                    <table id="tb_1">
+                        <tr>
+                            <th>DO</th>
+                            <th>pH</th>
+                            <th>TDS</th>
+                            <th>Suhu</th>
+                            <th>Keruh</th>
+                            <th>Rssi</th>
+                            <th>Tanggal/Waktu</th>
+                        </tr>
+                        <tr>
+                            <td id="do1">0</td>
+                            <td id="ph1">0</td>
+                            <td id="Tds1">0</td>
+                            <td id="suhu1">0</td>
+                            <td id="keruh1">0</td>
+                            <td id="rssi1">0</td>
+                            <td id="timestamp1">0</td>
+                          <!---- <td id="waktu1">0
+                                <script>
+                                    var dt = new Date();
+                                    document.getElementById("waktu1").innerHTML = dt.toLocaleString();
+                                </script>
+                            </td>--->
+
+                        </tr>
+                    </table>
+                </section>
+                <section>
+                    <h2>Node 2</h2>
+                    <table id="tb_2">
+                        <tr>
+                            <th>DO</th>
+                            <th>pH</th>
+                            <th>TDS</th>
+                            <th>Suhu</th>
+                            <th>Keruh</th>
+                            <th>Rssi</th>
+                            <th>Tanggal/Waktu</th>
+                        </tr>
+                        <tr>
+                            <td id="do2">0</td>
+                            <td id="ph2">0</td>
+                            <td id="tds2">0</td>
+                            <td id="suhu2">0</td>
+                            <td id="keruh2">0</td>
+                            <td id="rssi2">0</td>
+                            <td id="timestamp2">0</td>
+                           <!---- <td id="waktu2">0
+                                <script>
+                                    var dt = new Date();
+                                    document.getElementById("waktu2").innerHTML = dt.toLocaleString();
+                                </script>
+                            </td>-->
+                        </tr>
+                    </table>
+                </section>
+            </article>
+            <article></article>
+        </div>
+    </main>
+
+     <footer>
+        &copy; 2020, by Elsa Project
+     </footer>
+</body>
 </html>
