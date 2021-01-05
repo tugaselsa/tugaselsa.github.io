@@ -25,6 +25,30 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
+//timestamp//
+var curentTime= Date.now();
+var ref = firebase.database().ref('Timestamp').update({
+    [currentTime] : true 
+})
+
+//var docData = {
+    ////stringExample: "Hello world!",
+   // booleanExample: true,
+    //numberExample: 3.14159265,
+    dateExample: firebase.firestore.Timestamp.fromDate(new Date("December 10, 1815")),
+
+   // arrayExample: [5, true, "hello"],
+    //nullExample: null,
+    //objectExample: {
+      //  a: 5,
+       // b: {
+         //   nested: "foo"
+        //}
+    //}
+};
+db.collection("data").doc("one").set(docData).then(function() {
+    console.log("Document successfully written!");
+});
 
 // database.ref('/Live').once('value', function(snapshot){
     
@@ -43,6 +67,7 @@ var database = firebase.database();
 //   });
 
 database.ref('/live').on('value', function(snapshot){
+
     
     child = snapshot.val();
     node1_val = child["Node1"];
