@@ -76,13 +76,19 @@ database.ref('/live').on('value', function(snapshot){
     $("#do1").text(node1_val["DO"]);
     $("#ph1").text(node1_val["pH"]);
     $("#suhu1").text(node1_val["suhu"]);
-    $("#tbdt1").text(node1_val["tbdt"]);
+    $("#tds1").text(node1_val["tds"]);
+    $("#rssi1").text(node1_val["rssi"]);
     $("#keruh1").text(node1_val["keruh"]);
+    $("#waktu1").text(node1_val["waktu"]);
+
+
     
     $("#do2").text(node2_val["DO"]);
     $("#ph2").text(node2_val["pH"]);
     $("#suhu2").text(node2_val["suhu"]);
-    $("#tbdt2").text(node2_val["tbdt"]);
+    $("#tds2").text(node2_val["tds"]);
+    $("#rssi2").text(node1_val["rssi"]);
     $("#keruh2").text(node2_val["keruh"]);
+    $("#waktu2").text(node1_val["waktu"]);
 
   });
