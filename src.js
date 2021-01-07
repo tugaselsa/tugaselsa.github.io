@@ -25,49 +25,9 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
-//timestamp//
-var curentTime= Date.now();
-var ref = firebase.database().ref('Timestamp').update({
-    [currentTime] : true 
-})
 
-//var docData = {
-    ////stringExample: "Hello world!",
-   // booleanExample: true,
-    //numberExample: 3.14159265,
-    dateExample: firebase.firestore.Timestamp.fromDate(new Date("December 10, 1815")),
-
-   // arrayExample: [5, true, "hello"],
-    //nullExample: null,
-    //objectExample: {
-      //  a: 5,
-       // b: {
-         //   nested: "foo"
-        //}
-    //}
-};
-db.collection("data").doc("one").set(docData).then(function() {
-    console.log("Document successfully written!");
-});
-
-// database.ref('/Live').once('value', function(snapshot){
-    
-//     child = snapshot.val();
-//     node1_val = child["Node1"];
-//     // node2_val = child["Node2"];
-//     console.log(node1_val);
-
-//     $("#do1").text(node1_val["DO"]);
-//     $("#ph1").text(node1_val["pH"]);
-//     $("#suhu1").text(node1_val["suhu"]);
-//     $("#tbdt1").text(node1_val["tbdt"]);
-//     $("#keruh1").text(node1_val["keruh"]);
-    
-
-//   });
-
-database.ref('/live').on('value', function(snapshot){
-
+database.ref('/live').on('value', function(snapshot){ //huruf 'l' di 'live' nya harus huruf kecil sesuai di firebasenya
+	console.log('tehe');
     
     child = snapshot.val();
     node1_val = child["Node1"];
@@ -79,16 +39,14 @@ database.ref('/live').on('value', function(snapshot){
     $("#tds1").text(node1_val["tds"]);
     $("#rssi1").text(node1_val["rssi"]);
     $("#keruh1").text(node1_val["keruh"]);
-    $("#waktu1").text(node1_val["waktu"]);
-
-
+    $("#waktu1").text(node1_val["timestamp"]); //timestamp sesuai dengan key yang dipakai di firebase
     
     $("#do2").text(node2_val["DO"]);
     $("#ph2").text(node2_val["pH"]);
     $("#suhu2").text(node2_val["suhu"]);
     $("#tds2").text(node2_val["tds"]);
-    $("#rssi2").text(node1_val["rssi"]);
+    $("#rssi2").text(node2_val["rssi"]);
     $("#keruh2").text(node2_val["keruh"]);
-    $("#waktu2").text(node1_val["waktu"]);
+    $("#waktu2").text(node2_val["timestamp"]); //timestamp sesuai dengan key yang dipakai di firebase
 
   });
