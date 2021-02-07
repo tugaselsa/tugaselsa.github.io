@@ -38,7 +38,7 @@ database.ref('/live').on('value', function(snapshot){ //huruf 'l' di 'live' nya 
     $("#suhu1").text(node1_val["suhu"]);
     $("#tds1").text(node1_val["tds"]);
     $("#rssi1").text(node1_val["rssi"]);
-    $("#keruh1").text(node1_val["keruh"]);
+    $("#keruh1").text(node1_val["tbdt"]);
     $("#waktu1").text(node1_val["timestamp"]); //timestamp sesuai dengan key yang dipakai di firebase
      $("#keterangan1").text(node1_val["keterangan"]);
 	
@@ -47,7 +47,7 @@ database.ref('/live').on('value', function(snapshot){ //huruf 'l' di 'live' nya 
     $("#suhu2").text(node2_val["suhu"]);
     $("#tds2").text(node2_val["tds"]);
     $("#rssi2").text(node2_val["rssi"]);
-    $("#keruh2").text(node2_val["keruh"]);
+    $("#keruh2").text(node2_val["tbdt"]);
     $("#waktu2").text(node2_val["timestamp"]); //timestamp sesuai dengan key yang dipakai di firebase
      $("#keterangan2").text(node1_val["keterangan"]);
   });
