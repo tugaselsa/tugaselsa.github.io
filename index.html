@@ -19,6 +19,35 @@
         <h1>MONITORING PENCEMARAN AIR SUNGAI TELLO</h1>
     </header>
 
+    <!--untuk body map-->
+                <div id="mapid" style="width: 1344px; height: 300px;"></div>
+
+                 <script>var mymap = L.map('mapid').setView([-5.122, 119.479], 13);
+               
+                    //token//
+                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                    maxZoom: 18,
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+                        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    id: 'mapbox/streets-v11',
+                    tileSize: 512,
+                    zoomOffset: -1
+                }).addTo(mymap); 
+
+            //menambah titik pada map//
+                L.marker([-5.122, 119.479]).addTo(mymap);
+                L.marker([-5.119, 119.467]).bindPopup('Node 2 sensor (Lakkang)').addTo(mymap);
+            
+             //untuk ket marker//   
+               marker.bindPopup("<b>Node 1 sensor (Kera-kera) </b><br>pulau.").openPopup();
+               
+                </script>
+    
+    
+    
+    
+    
+    
     <main>
         
         <aside>
