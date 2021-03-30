@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="src.css">
+    <link rel="stylesheet" href="chart.js">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
         <!-- The core Firebase JS SDK is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
@@ -15,98 +16,90 @@
     <title>Monitor Pencemaran Air</title>
 </head>
 <body>
+
     <header>
         <h1>MONITORING PENCEMARAN AIR SUNGAI TELLO</h1>
     </header>
 
-    <!--untuk body map-->
-                <div id="mapid" style="width: 1344px; height: 300px;"></div>
-
-                 <script>var mymap = L.map('mapid').setView([-5.122, 119.479], 13);
-               
-                    //token//
-                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-                    maxZoom: 18,
-                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-                        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                    id: 'mapbox/streets-v11',
-                    tileSize: 512,
-                    zoomOffset: -1
-                }).addTo(mymap); 
-
-            //menambah titik pada map//
-                L.marker([-5.122, 119.479]).addTo(mymap);
-                L.marker([-5.119, 119.467]).bindPopup('Node 2 sensor (Lakkang)').addTo(mymap);
-            
-             //untuk ket marker//   
-               marker.bindPopup("<b>Node 1 sensor (Kera-kera) </b><br>pulau.").openPopup();
-               
-                </script>
-    
-    
-    
-    
-    
-    
     <main>
         
-       <!-- <aside>
-            <article class="card">
-                <h2>Limit</h2>
+    
+        <aside>
+            <article>        
+           
+            <section>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127155.557548158!2d119.44141000860687!3d-5.166084174371565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbf02913ab952cf%3A0x411b5b4ddbe2913d!2sKota%20Makassar%2C%20Sulawesi%20Selatan!5e0!3m2!1sid!2sid!4v1615261683542!5m2!1sid!2sid" width="300" height="370" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
-                    <table>
-                        <tr> 
-                            <th>Nilai DO</th>
-                            <td>= 3 mg/L</td>
-                        </tr>
-    
-                        <tr>
-                            <th>Nilai Suhu</th>
-                            <td>= C</td>
-                        </tr>
-                        
-                        <tr>
-                            <th>Nilai TDS</th>
-                            <td>= 1000 mg/L</td>
-                        </tr>
-                        
-                        <tr>
-                            <th>Nilai pH</th>
-                            <td>= 6-8,5</td>
-                        </tr>
-    
-                        <tr>
-                            <th>Nilai Kekeruhan</th>
-                            <td>= 25 NTU</td>
-                        </tr>                      
-                    </table>
+
+
+            </section>
             </article>
-        </aside>-->
-
+        </aside>
         <div id="content">
-            <article>
+            <b>Limit</b></br>
+                    <!-- <small>Nilai DO = 3 mg/L</small></br>
+                    <small>Nilai Suhu = C</small></br>
+                    <small>Nilai TDS = 1000 mg/L</small></br>
+                    <small>Nilai pH = 6-8,5</small></br>
+                    <small>Nilai Kekeruhan = 25 NTU</small></br> -->
+
+                    <small>Nilai DO = 3 mg/L. Nilai Suhu = C. Nilai TDS = 1000 mg/L. Nilai pH = 6-8,5. Nilai Kekeruhan = 25 NTU</small></br>
+
+          <label>
+          <aside>
+          <article>
                 <section>
                     <h2>Node 1</h2>
                     <table id="tb_1">
                         <tr>
                             <th>DO</th>
-                            <th>pH</th>
-                            <th>TDS</th>
-                            <th>Suhu</th>
-                            <th>Tbdt</th>
-                            <th>Rssi</th>
-                            <th>Waktu</th>
-                            <th>Hasil</th>
+                            <td>
+                            <a id="do1">0</a>
+                            <a hidden="" id="hasil_do1"></a>
+                            </td>
                         </tr>
                         <tr>
-                            <td id="do1">0</td>
-                            <td id="ph1">0</td>
-                            <td id="tds1">0</td>
-                            <td id="suhu1">0</td>
-                            <td id="tbdt1">0</td>
+                            <th>pH</th>
+                            <td>
+                            <a id="ph1">0</a>
+                            <a hidden="" id="hasil_ph1"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>TDS</th>
+                            <td>
+                            <a id="Tds1">0</a>
+                            <a hidden="" id="hasil_tds1"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Suhu</th>
+                            <td>
+                            <a id="suhu1">0</a>
+                            <a hidden="" id="hasil_suhu1"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Keruh</th>
+                            <td>
+                            <a id="keruh1">0</a>
+                            <a hidden="" id="hasil_keruh1"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Rssi</th>
                             <td id="rssi1">0</td>
+                        </tr>
+                        <tr>
+                            <th>Tanggal/Waktu</th>
                             <td id="waktu1">0</td>
-                            <td id="Hasil1">0</td>
+                        </tr>    
+                        <tr>
+                            <th>keterangan</th>
+                            <td id="hasil_akhir1">0</td>
+                        </tr>   
+                        
+                            
                           <!---- <td id="waktu1">0
                                 <script>
                                     var dt = new Date();
@@ -114,44 +107,488 @@
                                 </script>
                             </td>--->
 
-                        </tr>
                     </table>
-                </section>
-                <section>
-                    <h2>Node 2</h2>
+              
+            
+                            <button onclick="myFunction()">Try it</button>
+                            <div style="width: 400px;height:300px; ">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </section>
+                    </article>
+                </aside>
+            </label>
+
+            <label>
+                <aside>
+                    <article>
+                        <section>    
+                                <h2>Node 2</h2>
+                    
                     <table id="tb_2">
                         <tr>
                             <th>DO</th>
-                            <th>pH</th>
-                            <th>TDS</th>
-                            <th>Suhu</th>
-                            <th>Tbdt</th>
-                            <th>Rssi</th>
-                            <th>Waktu</th>
-                            <th>Hasil</th>
+                            <td>
+                            <a id="do2">0</a>
+                            <a id="hasil_do2"></a>
+                            </td>
                         </tr>
                         <tr>
-                            <td id="do2">0</td>
-                            <td id="ph2">0</td>
-                            <td id="tds2">0</td>
-                            <td id="suhu2">0</td>
-                            <td id="tbdt2">0</td>
+                            <th>pH</th>
+                            <td>
+                            <a id="ph2">0</a>
+                            <a hidden="" id="hasil_ph2"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>TDS</th>
+                            <td>
+                            <a id="Tds2">0</a>
+                            <a hidden="" id="hasil_tds2"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Suhu</th>
+                            <td>
+                            <a id="suhu2">0</a>
+                            <a hidden="" id="hasil_suhu2"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Keruh</th>
+                            <td>
+                            <a id="keruh2">0</a>
+                            <a hidden="" id="hasil_keruh2"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Rssi</th>
                             <td id="rssi2">0</td>
+                        </tr>
+                        <tr>
+                            <th>Tanggal/Waktu</th>
                             <td id="waktu2">0</td>
-                            <td id="Hasil2">0</td>
-                           <!---- <td id="waktu2">0
+                        </tr>    
+                        <tr>
+                            <th>keterangan</th>
+                            <td id="hasil_akhir2">0</td>
+                        </tr>   
+                        
+                            
+                          <!---- <td id="waktu1">0
                                 <script>
                                     var dt = new Date();
-                                    document.getElementById("waktu2").innerHTML = dt.toLocaleString();
+                                    document.getElementById("waktu1").innerHTML = dt.toLocaleString();
                                 </script>
-                            </td>-->
-                        </tr>
+                            </td>--->
+
                     </table>
-                </section>
-            </article>
-            <article></article>
+                    
+
+        
+                            <button onclick="myFunction1()">Try it</button>
+            
+         
+                            <div style="width: 400px;height: 300px; float: left">
+                                <canvas id="myChart1"></canvas>
+                            </div>
+                        </section>
+                    </article>
+                </aside>
+            </label>
+
+                    
+            
+            
         </div>
         <script type="text/javascript" src="src.js"></script>
+        <script type="text/javascript" src="chart.js"></script>
+
+<script> 
+function myFunction() {
+    var do1=document.getElementById("do1").innerHTML;
+    var ph1=document.getElementById("ph1").innerHTML;
+    var tds1=document.getElementById("Tds1").innerHTML;
+    var suhu1=document.getElementById("suhu1").innerHTML;
+    var keruh1=document.getElementById("keruh1").innerHTML;
+    var rssi1=document.getElementById("rssi1").innerHTML;
+    //var do1 = $("#do1").text(node1_val["DO"]);
+    if (do1 > 4 ){
+        $('#hasil_do1').html('Baik');
+    }
+    else if(do1 >=0 && do1 <=4){
+        $('#hasil_do1').html('Buruk');
+    }
+    else{
+        $('#hasil_do1').html('Data Tidak Ditemukan');
+    }
+
+
+    if (ph1 > 9 ){
+        $('#hasil_ph1').html('Basa');
+    }
+    else if(ph1 >=7 && ph1 <=9){
+        $('#hasil_ph1').html('Netral');
+    }
+    else if(ph1 >=0 && ph1 <=6){
+        $('#hasil_ph1').html('Asam');
+    }
+    else{
+        $('#hasil_ph1').html('Data Tidak Ditemukan');
+    }
+
+
+    if (tds1 > 1000 ){
+        $('#hasil_tds1').html('Buruk');
+    }
+    else if(tds1 >=0 && tds1 <=1000){
+        $('#hasil_tds1').html('Baik');
+    }
+    else{
+        $('#hasil_tds1').html('Data Tidak Ditemukan');
+    }
+
+
+    if (suhu1 >=33 && suhu1 <=36 ){
+        $('#hasil_suhu1').html('Panas');
+    }
+    else if(suhu1 >=25 && suhu1 <=32){
+        $('#hasil_suhu1').html('Normal');
+    }
+    else if(suhu1 >=0 && suhu1 <=24){
+        $('#hasil_suhu1').html('Dingin');
+    }
+    else{
+        $('#hasil_suhu1').html('Data Tidak Ditemukan');
+    }
+
+
+    if (keruh1 > 25 ){
+        $('#hasil_keruh1').html('Keruh');
+    }
+    else if(keruh1 >=0 && keruh1 <=25){
+        $('#hasil_keruh1').html('Jernih');
+    }
+    else{
+        $('#hasil_keruh1').html('Data Tidak Ditemukan');
+    }
+
+    var hasil_do1=document.getElementById("hasil_do1").innerHTML;
+    var hasil_ph1=document.getElementById("hasil_ph1").innerHTML;
+    var hasil_tds1=document.getElementById("hasil_tds1").innerHTML;
+    var hasil_suhu1=document.getElementById("hasil_suhu1").innerHTML;
+    var hasil_keruh1=document.getElementById("hasil_keruh1").innerHTML;
+
+    if(hasil_ph1 == 'Asam' && hasil_do1 == 'Baik' &&  hasil_suhu1 == 'Normal' &&  hasil_tds1 == 'Baik' &&  hasil_keruh1 == 'Jernih'){
+        $('#hasil_akhir1').html('TC (TIDAK TERCEMAR)');
+    }
+    else if(hasil_ph1 == 'Netral' && hasil_do1 == 'Baik' &&  hasil_suhu1 == 'Dingin' &&  hasil_tds1 == 'Baik' &&  hasil_keruh1 == 'Jernih'){
+        $('#hasil_akhir1').html('TC (TIDAK TERCEMAR)');
+    }
+    else if(hasil_ph1 == 'Basa' && hasil_do1 == 'Baik' &&  hasil_suhu1 == 'Panas' &&  hasil_tds1 == 'Baik' &&  hasil_keruh1 == 'Jernih'){
+        $('#hasil_akhir1').html('TC (TIDAK TERCEMAR)');
+    }
+    else if(hasil_ph1 == 'Asam' && hasil_do1 == 'Baik' &&  hasil_suhu1 == 'Normal' &&  hasil_tds1 == 'Buruk' &&  hasil_keruh1 == 'Keruh'){
+        $('#hasil_akhir1').html('TS (TERCEMAR SEDANG)');
+    }
+    else if(hasil_ph1 == 'Netral' && hasil_do1 == 'Baik' &&  hasil_suhu1 == 'Dingin' &&  hasil_tds1 == 'Buruk' &&  hasil_keruh1 == 'Keruh'){
+        $('#hasil_akhir1').html('TS (TERCEMAR SEDANG)');
+    }
+    else if(hasil_ph1 == 'Basa' && hasil_do1 == 'Baik' &&  hasil_suhu1 == 'Normal' &&  hasil_tds1 == 'Buruk' &&  hasil_keruh1 == 'Keruh'){
+        $('#hasil_akhir1').html('TS (TERCEMAR SEDANG)');
+    }
+    else if(hasil_ph1 == 'Netral' && hasil_do1 == 'Buruk' &&  hasil_suhu1 == 'Dingin' &&  hasil_tds1 == 'Buruk' &&  hasil_keruh1 == 'Keruh'){
+        $('#hasil_akhir1').html('TB (TERCEMAR BERAT)');
+    }
+    else if(hasil_ph1 == 'Asam' && hasil_do1 == 'Buruk' &&  hasil_suhu1 == 'Dingin' &&  hasil_tds1 == 'Buruk' &&  hasil_keruh1 == 'Jernih'){
+        $('#hasil_akhir1').html('TB (TERCEMAR BERAT)');
+    }
+    else if(hasil_ph1 == 'Basa' && hasil_do1 == 'Buruk' &&  hasil_suhu1 == 'Dingin' &&  hasil_tds1 == 'Buruk' &&  hasil_keruh1 == 'Keruh'){
+        $('#hasil_akhir1').html('TB (TERCEMAR BERAT)');
+    }
+    else if(hasil_ph1 == 'Netral' && hasil_do1 == 'Baik' &&  hasil_suhu1 == 'Dingin' &&  hasil_tds1 == 'Buruk' &&  hasil_keruh1 == 'Jernih'){
+        $('#hasil_akhir1').html('TR (TERCEMAR RINGAN)');
+    }
+    else if(hasil_ph1 == 'Asam' && hasil_do1 == 'Baik' &&  hasil_suhu1 == 'Dingin' &&  hasil_tds1 == 'Baik' &&  hasil_keruh1 == 'Jernih'){
+        $('#hasil_akhir1').html('TR (TERCEMAR RINGAN)');
+    }
+    else if(hasil_ph1 == 'Netral' && hasil_do1 == 'Baik' &&  hasil_suhu1 == 'Normal' &&  hasil_tds1 == 'Buruk' &&  hasil_keruh1 == 'Keruh'){
+        $('#hasil_akhir1').html('TR (TERCEMAR RINGAN)');
+    }
+    else{
+        $('#hasil_akhir1').html('TIDAK ADA DATA');
+    }
+  
+  // var x = document.getElementById("do");
+
+  // x.style.color = "red";
+  // document.getElementById("demo").innerHTML = x;
+
+  // document.getElementById('Msg').innerHTML = 'some text', x;
+
+
+
+
+
+
+ var ctx = document.getElementById("myChart").getContext('2d');
+ var lineChartData
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["DO", "pH", "TDS", "Suhu", "Keruh", "Rssi"],
+                datasets: [{
+                    label: '',
+                    data: [do1, ph1, tds1, suhu1, keruh1, rssi1],
+                    
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+</script>        
+<script> 
+function myFunction1() {
+    var do2=document.getElementById("do2").innerHTML;
+    var ph2=document.getElementById("ph2").innerHTML;
+    var tds2=document.getElementById("Tds2").innerHTML;
+    var suhu2=document.getElementById("suhu2").innerHTML;
+    var keruh2=document.getElementById("keruh2").innerHTML;
+    var rssi2=document.getElementById("rssi2").innerHTML;
+    //var do1 = $("#do1").text(node1_val["DO"]);
+    if (do2 > 4 ){
+        $('#hasil_do2').html('Baik');
+    }
+    else if(do2 >=0 && do2 <=4){
+        $('#hasil_do2').html('Buruk');
+    }
+    else{
+        $('#hasil_do2').html('Data Tidak Ditemukan');
+    }
+
+
+    if (ph2 > 9 ){
+        $('#hasil_ph2').html('Basa');
+    }
+    else if(ph2 >=7 && ph2 <=9){
+        $('#hasil_ph2').html('Netral');
+    }
+    else if(ph2 >=0 && ph2 <=6){
+        $('#hasil_ph2').html('Asam');
+    }
+    else{
+        $('#hasil_ph2').html('Data Tidak Ditemukan');
+    }
+
+
+    if (tds2 > 1000 ){
+        $('#hasil_tds2').html('Buruk');
+    }
+    else if(tds2 >=0 && tds2 <=1000){
+        $('#hasil_tds2').html('Baik');
+    }
+    else{
+        $('#hasil_tds2').html('Data Tidak Ditemukan');
+    }
+
+
+    if (suhu2 >=33 && suhu2 <=36 ){
+        $('#hasil_suhu2').html('Panas');
+    }
+    else if(suhu2 >=25 && suhu2 <=32){
+        $('#hasil_suhu2').html('Normal');
+    }
+    else if(suhu2 >=0 && suhu2 <=24){
+        $('#hasil_suhu2').html('Dingin');
+    }
+    else{
+        $('#hasil_suhu2').html('Data Tidak Ditemukan');
+    }
+
+
+    if (keruh2 > 25 ){
+        $('#hasil_keruh2').html('Keruh');
+    }
+    else if(keruh2 >=0 && keruh2 <=25){
+        $('#hasil_keruh2').html('Jernih');
+    }
+    else{
+        $('#hasil_keruh2').html('Data Tidak Ditemukan');
+    }
+
+    var hasil_do2=document.getElementById("hasil_do2").innerHTML;
+    var hasil_ph2=document.getElementById("hasil_ph2").innerHTML;
+    var hasil_tds2=document.getElementById("hasil_tds2").innerHTML;
+    var hasil_suhu2=document.getElementById("hasil_suhu2").innerHTML;
+    var hasil_keruh2=document.getElementById("hasil_keruh2").innerHTML;
+
+    if(hasil_ph2 == 'Asam' && hasil_do2 == 'Baik' &&  hasil_suhu2 == 'Normal' &&  hasil_tds2 == 'Baik' &&  hasil_keruh2 == 'Jernih'){
+        $('#hasil_akhir2').html('TC (TIDAK TERCEMAR)');
+    }
+    else if(hasil_ph2 == 'Netral' && hasil_do2 == 'Baik' &&  hasil_suhu2 == 'Dingin' &&  hasil_tds2 == 'Baik' &&  hasil_keruh2 == 'Jernih'){
+        $('#hasil_akhir2').html('TC (TIDAK TERCEMAR)');
+    }
+    else if(hasil_ph2 == 'Basa' && hasil_do2 == 'Baik' &&  hasil_suhu2 == 'Panas' &&  hasil_tds2 == 'Baik' &&  hasil_keruh2 == 'Jernih'){
+        $('#hasil_akhir2').html('TC (TIDAK TERCEMAR)');
+    }
+    else if(hasil_ph2 == 'Asam' && hasil_do2 == 'Baik' &&  hasil_suhu2 == 'Normal' &&  hasil_tds2 == 'Buruk' &&  hasil_keruh2 == 'Keruh'){
+        $('#hasil_akhir2').html('TS (TERCEMAR SEDANG)');
+    }
+    else if(hasil_ph2 == 'Netral' && hasil_do2 == 'Baik' &&  hasil_suhu2 == 'Dingin' &&  hasil_tds2 == 'Buruk' &&  hasil_keruh2 == 'Keruh'){
+        $('#hasil_akhir2').html('TS (TERCEMAR SEDANG)');
+    }
+    else if(hasil_ph2 == 'Basa' && hasil_do2 == 'Baik' &&  hasil_suhu2 == 'Normal' &&  hasil_tds2 == 'Buruk' &&  hasil_keruh2 == 'Keruh'){
+        $('#hasil_akhir2').html('TS (TERCEMAR SEDANG)');
+    }
+    else if(hasil_ph2 == 'Netral' && hasil_do2 == 'Buruk' &&  hasil_suhu2 == 'Dingin' &&  hasil_tds2 == 'Buruk' &&  hasil_keruh2 == 'Keruh'){
+        $('#hasil_akhir2').html('TB (TERCEMAR BERAT)');
+    }
+    else if(hasil_ph2 == 'Asam' && hasil_do2 == 'Buruk' &&  hasil_suhu2 == 'Dingin' &&  hasil_tds2 == 'Buruk' &&  hasil_keruh2 == 'Jernih'){
+        $('#hasil_akhir2').html('TB (TERCEMAR BERAT)');
+    }
+    else if(hasil_ph2 == 'Basa' && hasil_do2 == 'Buruk' &&  hasil_suhu2 == 'Dingin' &&  hasil_tds2 == 'Buruk' &&  hasil_keruh2 == 'Keruh'){
+        $('#hasil_akhir2').html('TB (TERCEMAR BERAT)');
+    }
+    else if(hasil_ph2 == 'Netral' && hasil_do2 == 'Baik' &&  hasil_suhu2 == 'Dingin' &&  hasil_tds2 == 'Buruk' &&  hasil_keruh2 == 'Jernih'){
+        $('#hasil_akhir2').html('TR (TERCEMAR RINGAN)');
+    }
+    else if(hasil_ph2 == 'Asam' && hasil_do2 == 'Baik' &&  hasil_suhu2 == 'Dingin' &&  hasil_tds2 == 'Baik' &&  hasil_keruh2 == 'Jernih'){
+        $('#hasil_akhir2').html('TR (TERCEMAR RINGAN)');
+    }
+    else if(hasil_ph2 == 'Netral' && hasil_do2 == 'Baik' &&  hasil_suhu2 == 'Normal' &&  hasil_tds2 == 'Buruk' &&  hasil_keruh2 == 'Keruh'){
+        $('#hasil_akhir2').html('TR (TERCEMAR RINGAN)');
+    }
+    else{
+        $('#hasil_akhir2').html('TIDAK ADA DATA');
+    }
+  
+  // var x = document.getElementById("do");
+
+  // x.style.color = "red";
+  // document.getElementById("demo").innerHTML = x;
+
+  // document.getElementById('Msg').innerHTML = 'some text', x;
+
+
+
+ var ctx = document.getElementById("myChart1").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["DO", "pH", "TDS", "Suhu", "Keruh", "Rssi"],
+                datasets: [{
+                    label: '',
+                    data: [do2, ph2, tds2, suhu2, keruh2, rssi2],
+                    
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+
+
+}
+</script>
+        <!-- <script>
+       //var myFirebaseRef = new Firebase('https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js');
+       //var database = firebase.database();
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["DO", "pH", "TDS", "Suhu", "Keruh", "Rssi"],
+                datasets: [{
+                    label: '',
+                    data: ['5', '8', '2', '9', '15', '25'],
+                    
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+    </script> -->
+    <!-- <script>
+        // var do3=document.getElementById("do2").innerHTML;
+         var ph2=document.getElementById("ph2").innerHTML;
+        // var tds2=document.getElementById("Tds2").innerHTML;
+        // var suhu2=document.getElementById("suhu2").innerHTML;
+        // var keruh2=document.getElementById("keruh2").innerHTML;
+        var ctx = document.getElementById("myChart1").getContext('2d');
+        var do2 = $('#do2').val();
+        var ph2 = $('#ph2').val();
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["DO", "pH", "TDS", "Suhu", "Keruh", "Rssi"],
+                datasets: [{
+                    data: [document.getElementById("do2").innerHTML, var ph2, 5, 4, 3],
+                    // backgroundColor: [
+                    // 'rgba(255, 99, 132, 0.2)',
+                    // 'rgba(54, 162, 235, 0.2)',
+                    // 'rgba(255, 206, 86, 0.2)',
+                    // 'rgba(75, 192, 192, 0.2)',
+                    // 'rgba(153, 102, 255, 0.2)'
+                    // ],
+                    // borderColor: [
+                    // 'rgba(255,99,132,1)',
+                    // 'rgba(54, 162, 235, 1)',
+                    // 'rgba(255, 206, 86, 1)',
+                    // 'rgba(75, 192, 192, 1)',
+                    // 'rgba(153, 102, 255, 1)'
+                    // ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+    </script> -->
     </main>
 
      <footer>
