@@ -34,6 +34,19 @@ aside{
    padding-right: 15px;
    box-sizing: 200px; 
 }
+label{
+   float: left;
+   width:45%;
+   padding-right: 15px;
+   box-sizing: 200px;
+}
+
+.asides{
+   float: left;
+   width: 50%;
+   padding-right: 15px;
+   box-sizing: 200px;
+}
 
 aside table {
    margin: auto;
@@ -55,23 +68,23 @@ h2, h3 {
 #tb_1, #tb_2 {
    border-radius: 10px;
    background-color: blueviolet;
-   padding: 20px;
+   padding: 2px;
    color: white;
 }
 
 #tb_1 td, #tb_2 td {
-   border-radius: 10px;
+   border-radius: 5px;
    background-color: white;
-   padding: 20px;
-   width: 150px;
+   padding: 5px;
+   width: 100px;
    color:black;
-   font-size: 20px;
+   font-size: 18px;
    font-weight: bold;
    text-align: center;
 }
 
 #tb_1 th, #tb_2 th {
-   font-size: 20px;
+   font-size: 16px;
 }
  
 footer {
@@ -81,6 +94,11 @@ footer {
    text-align: center;
    font-weight:bold;
    font-size:medium;
+}
+
+p {
+   font-size: 12px;
+  font-weight:bold;
 }
 
 @media screen and (max-width: 600px) {
